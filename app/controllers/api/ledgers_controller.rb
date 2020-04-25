@@ -38,7 +38,7 @@ class Api::LedgersController < Api::ApplicationController
 	end
 
 	def public_ledgers_collection
-		Ledger.last
+		Ledger.all
 	end
 
 	def ledger_params
