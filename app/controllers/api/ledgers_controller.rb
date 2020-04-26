@@ -27,7 +27,7 @@ class Api::LedgersController < Api::ApplicationController
 		if ledger.update_attributes(ledger_params)
 			render status: 200, json: response_success('Ledger updated', ledger: ledger)
 		else
-			render status: 422, json: response_fail('Unable to create Ledger', errors: ledger.errors.full_messages.join(', '))
+			render status: 422, json: response_fail('Unable to update Ledger', errors: ledger.errors.full_messages.join(', '))
 		end 
 	end
 

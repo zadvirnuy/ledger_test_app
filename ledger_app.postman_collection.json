@@ -1,0 +1,233 @@
+{
+	"info": {
+		"_postman_id": "b3b8b973-e60b-4aa9-aab3-0e648c55b695",
+		"name": "ledger_app",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "create ledger",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/ledgers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"ledgers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get_ledger",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				},
+				"description": "ledger_collection"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/api/ledgers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/ledgers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"ledgers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get ledger",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/ledgers/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"ledgers",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/api/ledgers/1/transactions",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/ledgers/1/transactions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"ledgers",
+						"1",
+						"transactions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create_transaction",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/ledgers/1/transactions?amount=123.05&tr_type=expenses&date=2020-04-26",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"ledgers",
+						"1",
+						"transactions"
+					],
+					"query": [
+						{
+							"key": "amount",
+							"value": "123.05"
+						},
+						{
+							"key": "tr_type",
+							"value": "expenses"
+						},
+						{
+							"key": "date",
+							"value": "2020-04-26"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update_transaction",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/ledgers/1/transactions/11/?amount=123&tr_type=expenses&date=2020-04-26",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"ledgers",
+						"1",
+						"transactions",
+						"11",
+						""
+					],
+					"query": [
+						{
+							"key": "amount",
+							"value": "123"
+						},
+						{
+							"key": "tr_type",
+							"value": "expenses"
+						},
+						{
+							"key": "date",
+							"value": "2020-04-26"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ledger_balance",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/stats/ledger_balance?ledger_id=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"stats",
+						"ledger_balance"
+					],
+					"query": [
+						{
+							"key": "ledger_id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ledger_totals",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/stats/ledger_totals?ledger_id=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"stats",
+						"ledger_totals"
+					],
+					"query": [
+						{
+							"key": "ledger_id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

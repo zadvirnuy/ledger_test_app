@@ -1,4 +1,5 @@
 require 'rails_helper'
 
-describe API::Web::LeadsController, type: :controller do
+describe API::Web::TransactionsController, type: :controller do
+
 end
