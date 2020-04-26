@@ -6,5 +6,11 @@ Rails.application.routes.draw do
   			resources :transactions, except: %i[destroy show]
   		end
   	end
+  	resource :stats, only: [] do
+      collection do
+        get :ledger_totals
+        get :ledger_balance
+      end
+    end
   end
 end
