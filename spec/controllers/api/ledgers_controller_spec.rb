@@ -8,8 +8,8 @@ describe Api::LedgersController, type: :controller do
 			get :index, format: :json
 
 			expect(response).to be_successful
-      expect(parse_json(response.body).keys).to contain_exactly('success', 'alert', 'ledgers')
-      expect(parse_json(response.body, 'ledgers')).to match_array(ledgers.as_json)
+			expect(parse_json(response.body).keys).to contain_exactly('success', 'alert', 'ledgers')
+			expect(parse_json(response.body, 'ledgers')).to match_array(ledgers.as_json)
 		end
 	end
 

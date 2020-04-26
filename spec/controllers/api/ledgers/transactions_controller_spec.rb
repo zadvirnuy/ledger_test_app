@@ -13,8 +13,8 @@ describe Api::Ledgers::TransactionsController, type: :controller do
 			get :index, params: { ledger_id: 33 }
 
 			expect(response).to be_successful
-      expect(parse_json(response.body).keys).to contain_exactly('success', 'alert', 'transactions')
-      expect(parse_json(response.body, 'transactions')).to match_array([expenses_tr1.as_json, revenues_tr1.as_json])
+			expect(parse_json(response.body).keys).to contain_exactly('success', 'alert', 'transactions')
+			expect(parse_json(response.body, 'transactions')).to match_array([expenses_tr1.as_json, revenues_tr1.as_json])
 		end
 	end
 

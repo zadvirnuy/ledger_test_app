@@ -22,7 +22,7 @@ RSpec.describe Transaction, type: :model do
 
 		context 'date format yyyy-mm-dd' do
 			it { should allow_value("2020-01-31").for(:date) }
-  		it { should_not allow_value("2020-31-13").for(:date) }
+			it { should_not allow_value("2020-31-13").for(:date) }
 		end
 	end
 end

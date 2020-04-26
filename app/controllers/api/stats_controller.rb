@@ -20,6 +20,6 @@ class Api::StatsController < Api::ApplicationController
 	end
 
 	def filter_params
-    { year: params[:year], month: params[:month] }
-  end
+		{ year: params[:year], month: params[:month] }
+	end
 end
