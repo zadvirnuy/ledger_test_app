@@ -21,7 +21,7 @@ class Api::Ledgers::TransactionsController < Api::ApplicationController
 		if transaction.update_attributes(transaction_params)
 			render status: 200, json: response_success('Transaction updated', transaction: transaction)
 		else
-			render status: 422, json: response_fail('Unable to create Transaction', errors: transaction.errors.full_messages.join(', '))
+			render status: 422, json: response_fail('Unable to update Transaction', errors: transaction.errors.full_messages.join(', '))
 		end 
 	end
 
