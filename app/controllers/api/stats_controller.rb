@@ -1,25 +1,25 @@
 class Api::StatsController < Api::ApplicationController
-	def ledger_totals
-		ledger = load_ledger
-		expenses, revenues = ledger.totals(filter_params)
+  def ledger_totals
+    ledger = load_ledger
+    expenses, revenues = ledger.totals(filter_params)
 
-		render status: 200, json: response_success('Ledger Totals', expenses: expenses, revenues: revenues)
-	end
+    render status: 200, json: response_success('Ledger Totals', expenses: expenses, revenues: revenues)
+  end
 
-	def ledger_balance
-		ledger = load_ledger
-		balance = ledger.balance
+  def ledger_balance
+    ledger = load_ledger
+    balance = ledger.balance
 
-		render status: 200, json: response_success('Ledger Balance', balance: balance)
-	end
+    render status: 200, json: response_success('Ledger Balance', balance: balance)
+  end
 
-	private
+  private
 
-	def load_ledger
-		Ledger.find(params[:ledger_id])
-	end
+  def load_ledger
+    Ledger.find(params[:ledger_id])
+  end
 
-	def filter_params
-		{ year: params[:year], month: params[:month] }
-	end
+  def filter_params
+    { year: params[:year], month: params[:month] }
+  end
 end
