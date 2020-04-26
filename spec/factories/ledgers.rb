@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :ledger do
-    name { 'Test Ledger' }
+    name { Faker::Name.unique.name }
     starting_balance { 1000 }
   end
 end

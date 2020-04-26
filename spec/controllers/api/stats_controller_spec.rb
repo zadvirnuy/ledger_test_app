@@ -1,5 +1,5 @@
 require 'rails_helper'
 
-describe API::Web::StatsController, type: :controller do
+describe API::StatsController, type: :controller do
 
 end
