@@ -15,6 +15,11 @@ class Ledger < ActiveRecord::Base
     self.starting_balance + total_revenues - total_expenses
   end
 
+  def transactions_tag_filtered(tags:)
+    tr_with_tags = Transaction.where(ledger_id: self.id)
+    tr_with_tags.joins(:tags).where('lower("tags"."name") IN (?)', tags)
+  end
+
   private
 
   def total_expenses(filter_params = nil)

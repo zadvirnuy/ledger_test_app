@@ -28,7 +28,13 @@ class Api::Ledgers::TransactionsController < Api::ApplicationController
   private
 
   def public_ledgers_transactions
-    load_ledger.transactions
+    if params[:tags]
+      tags = params[:tags].split(',').reject(&:blank?)
+
+      load_ledger.transactions_tag_filtered(tags: tags)
+    else
+      load_ledger.transactions
+    end
   end
 
   def load_ledger
