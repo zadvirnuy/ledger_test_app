@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     resources :ledgers, except: :destroy do
       scope module: :ledgers do
-        resources :tags, only: %i[create]
         resources :transactions, except: %i[destroy show] do
           scope module: :transactions do
             resources :tags, only: %i[create]

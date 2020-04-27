@@ -18,14 +18,14 @@ class Ledger < ActiveRecord::Base
   private
 
   def total_expenses(filter_params = nil)
-    expenses_tr = Transaction.where(tr_type: 'expenses', ledger_id: self.id).joins(:tags) #self.transactions.where(tr_type: 'expenses')
+    expenses_tr = Transaction.where(tr_type: 'expenses', ledger_id: self.id).joins(:tags)
     expenses_tr = filter_transactions_by(expenses_tr, filter_params) if filter_params
 
     expenses_tr.map(&:amount).reduce(0, :+)
   end
 
   def total_revenues(filter_params = nil)
-    revenues_tr = Transaction.where(tr_type: 'revenues', ledger_id: self.id).joins(:tags) #self.transactions.where(tr_type: 'revenues')
+    revenues_tr = Transaction.where(tr_type: 'revenues', ledger_id: self.id).joins(:tags)
     revenues_tr = filter_transactions_by(revenues_tr, filter_params) if filter_params
 
     revenues_tr.map(&:amount).reduce(0, :+)
