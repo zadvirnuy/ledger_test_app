@@ -40,6 +40,9 @@ API Endpoinds descriptions:
 
  GET    /api/ledgers/:ledger_id/transactions
  		collection of ledger transactions
+ 		Parameters:
+ 			optional:
+ 				tags: string, format( 'first tag' or comma separated 'first tag, second tag' )
 
  POST   /api/ledgers/:ledger_id/transactions
  		creates transaction for ledger
