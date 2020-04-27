@@ -97,3 +97,8 @@ API Endpoinds descriptions:
 
 Code Structure:
 
+1) In Api controllers only CRUD operations and pamaters formation are being kept
+2) Api responses methods are located Api application controller
+3) Statistic about ledgers totals and balance are in separate stats controller. Calculation Logic is in Ledger Model. From where transactions and tags are queried .
+4) Tags were made as a polymorphic association, to have possibility to extend any needed entities with tags. Tags creation logic is separated to service, to support multiple sources(subjects)
+5) Calculations of ledger totals and ledger balance, are tested in the ledger model spec, and in controller only response . to prevent overtesting.
