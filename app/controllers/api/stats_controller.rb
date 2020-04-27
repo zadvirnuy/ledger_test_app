@@ -20,6 +20,8 @@ class Api::StatsController < Api::ApplicationController
   end
 
   def filter_params
-    { year: params[:year], month: params[:month] }
+    tags = params[:tags].split(',').reject(&:blank?)
+
+    { year: params[:year], month: params[:month], tags: tags }
   end
 end

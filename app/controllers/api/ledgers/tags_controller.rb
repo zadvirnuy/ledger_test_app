@@ -1,7 +1,7 @@
 class Api::Ledgers::TagsController < Api::ApplicationController
 	def create
 		transaction = load_transaction
-    byebug
+    
    	# tag = Tag.new(source: transaction, name: params[:name])
 
     # if tag.save!

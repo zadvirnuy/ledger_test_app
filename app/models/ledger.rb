@@ -18,14 +18,14 @@ class Ledger < ActiveRecord::Base
   private
 
   def total_expenses(filter_params = nil)
-    expenses_tr = self.transactions.where(tr_type: 'expenses')
+    expenses_tr = Transaction.where(tr_type: 'expenses', ledger_id: self.id).joins(:tags) #self.transactions.where(tr_type: 'expenses')
     expenses_tr = filter_transactions_by(expenses_tr, filter_params) if filter_params
 
     expenses_tr.map(&:amount).reduce(0, :+)
   end
 
   def total_revenues(filter_params = nil)
-    revenues_tr = self.transactions.where(tr_type: 'revenues')
+    revenues_tr = Transaction.where(tr_type: 'revenues', ledger_id: self.id).joins(:tags) #self.transactions.where(tr_type: 'revenues')
     revenues_tr = filter_transactions_by(revenues_tr, filter_params) if filter_params
 
     revenues_tr.map(&:amount).reduce(0, :+)
@@ -34,7 +34,8 @@ class Ledger < ActiveRecord::Base
   def filter_transactions_by(tr, filter_params)
     filtered = tr.where("CAST(strftime('%Y', date) as INT) = ?", filter_params[:year]) if filter_params[:year]
     filtered = tr.where("CAST(strftime('%m', date) as INT) = ?", filter_params[:month]) if filter_params[:month]
+    filtered = tr.where('lower("tags"."name") IN (?)', filter_params[:tags]) if filter_params[:tags]
 
-    filtered || tr
+    filtered.uniq || tr.uniq
   end
 end
