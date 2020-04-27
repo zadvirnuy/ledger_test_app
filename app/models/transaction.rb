@@ -2,6 +2,8 @@ class Transaction < ActiveRecord::Base
   VALID_TYPES = %w(expenses revenues).freeze
 
   belongs_to :ledger
+  has_many :tag_connections, as: :subject
+  has_many :tags, through: :tag_connections
 
   validates_presence_of :ledger_id, :amount, :date, :tr_type
   validates :amount, numericality: { only_float: true }

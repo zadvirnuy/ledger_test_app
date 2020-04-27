@@ -1,5 +1,7 @@
 class Ledger < ActiveRecord::Base
   has_many :transactions
+  has_many :tag_connections, as: :subject
+  has_many :tags, through: :tag_connections
 
   validates_presence_of :name, :starting_balance
   validates_uniqueness_of :name
